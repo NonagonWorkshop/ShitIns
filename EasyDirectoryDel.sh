@@ -21,12 +21,31 @@ main() {
 
 directoryDEL() {
     clear
+    cd /
     echo "Please type a proper directory to cd. (e.g, /usr/bin, etc)"
 
     read -p  "Directory: " DIR
 
     cd $DIR
 
+    clear
     ls
+
+    read -p "Delete: " DELDIR
+    rm -rf $DELDIR
+
+    echo "DELETED"
+    ls
+
+    echo "Wanna do that again?
+      y) Yes I do
+      n) No return to menu
+    " 
+    read -p "Y or N: " YORN
+    
+    case $YORN in
+      y) ReDelDIR ;;
+      n) main ;;
+    esac
     
 }
